@@ -7,8 +7,8 @@ const ScoreChart = () => {
       <div className="score_container-title">Score Chart</div>
 
       <div className="score_container-playerbox">
-        <div>Player 1 owes $10</div>
-        <div>Player 2 won $10</div>
+        {/* calculate the winning player in app component*/}
+        <div>Player Losing owes Player Winning $10</div>
       </div>
     </div>
   );
