@@ -1,0 +1,14 @@
+
+.header_container {
+    background-color: rgb(117, 103, 139);
+}
+.title_container {
+    display: flex;
+    justify-content: center;
+}
+
+.explain_container {
+    display: flex;
+    justify-content: flex-end;
+    justify-self: flex-end;
+}
