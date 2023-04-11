@@ -3,16 +3,19 @@ import "./body.css"
 import Coin from '../Coin/Coin'
 import ScoreChart from '../ScoreChart/ScoreChart'
 import FlipLog from '../FlipLog/FlipLog'
+import Outcome from '../Outcome/Outcome'
 
 const Body = () => {
 
   const [currentPlayer, setCurrentPlayer] = useState("Player 1")
   const [currentBet, setCurrentBet] = useState(0)
-  const [guess, setGuess] = useState("")
+  const [currentGuess, setCurrentGuess] = useState("")
   const [flipValue, setFlipValue] = useState("")
   const [flipTime, setFlipTime] = useState("")
   const [logsArray, setLogsArray] = useState([])
-  
+  const [playerOneScore, setPlayerOneScore] = useState(0)
+  const [playerTwoScore, setPlayerTwoScore] = useState(0)
+  const [winner, setWinner] = useState("")
 
   const coinFlip = () => {
     calcFlip();
@@ -32,8 +35,26 @@ const Body = () => {
 
     //function to take in user input for heads/tails selection
       // update the guess state with setGuess
+    timeOfFlip();
     
-      changePlayer();
+  
+  }
+
+  const resetGame = () => {
+    setFlipValue("");
+    setCurrentBet(0);
+    changePlayer();
+    setCurrentGuess("");
+
+  }
+
+  //return to this
+  const timeOfFlip = () => {
+    const today = new Date();
+    const hour = today.getHours();
+    const mins = today.getMinutes();
+    console.log(hour);
+    console.log(mins);
   }
 
   //calculate heads or tails when coin flips
@@ -42,7 +63,6 @@ const Body = () => {
     const randomFlip = Math.floor(Math.random() * 2)
     const flip = randomFlip ? "Heads" : "Tails"
     setFlipValue(flip);
-    
 
 
   }
@@ -61,18 +81,44 @@ const Body = () => {
     setCurrentBet(bet)
   }
 
+  const handleGuess = (guess) => {
+    console.log( guess )
+    setCurrentGuess(guess)
+  }
+
   return (
-    <div className="body_container">
-        <ScoreChart />
+    <>
+<div className="body_container">
+      <ScoreChart
+        playerOneScore={playerOneScore} 
+        playerTwoScore={playerTwoScore} 
+        
+        />
       <Coin
         currentPlayer={currentPlayer}
         currentBet={currentBet}
         coinFlip={coinFlip}
         flipValue={flipValue}
         setCurrentBet={setCurrentBet}
-        handleSubmit={handleSubmit} />
-        <FlipLog />
+        handleSubmit={handleSubmit} 
+        handleGuess={handleGuess}
+        currentGuess={currentGuess}
+        resetGame={resetGame}
+        />
+
+      <FlipLog 
+        currentPlayer={currentPlayer}
+        currentBet={currentBet}
+        />
     </div>
+      <div>
+        <Outcome
+          currentPlayer={currentPlayer}
+          currentBet={currentBet}
+        />
+      </div>
+    </>
+    
   )
 }
 

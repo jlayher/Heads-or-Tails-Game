@@ -2,19 +2,18 @@ import { React, useState } from 'react'
 import "./coin.css"
 
 
-const Coin = ({ currentPlayer, currentBet, coinFlip, flipValue, setCurrentBet, handleSubmit }) => {
+const Coin = ({ currentPlayer, currentBet, coinFlip, flipValue, setCurrentBet, handleSubmit, handleGuess, currentGuess, resetGame }) => {
   
   const [bet, setBet] = useState(0);
-
+  const [guess, setGuess] = useState("");
 
   return (
     <div className="coin_container">
       <div className="coin_container-current">
         <div>Current Player: {currentPlayer}</div>
-        {/* update on button click */}
-        <div>Player's Guess: Heads/Tails</div>
+        <div>Player's Guess: {currentGuess}</div>
         <div>Current Bet: {currentBet}</div>
-        <div>Flip Value: {flipValue}</div>
+        <div>Flip Outcome: {flipValue}</div>
       </div>
 
       <div className="coin">
@@ -22,10 +21,12 @@ const Coin = ({ currentPlayer, currentBet, coinFlip, flipValue, setCurrentBet, h
       </div>
 
       <div>
+      <div>Place Your Bet!</div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit(bet);
+            setBet(0);
           }}>
           <input
             type="number"
@@ -38,12 +39,46 @@ const Coin = ({ currentPlayer, currentBet, coinFlip, flipValue, setCurrentBet, h
             Place Bet
           </button>
         </form>
-        {/* player choses heads or tails using buttons or radio buttons
-            The current player's choice should be reflected in the top, under current player */}
+
+        <div />
+
+        <div>
+          <div>Select Your Guess {currentPlayer}</div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setGuess(guess);
+              handleGuess(guess);
+              setGuess("");
+            }}>
+
+            <label for="heads">Heads</label>
+            <input
+              type="radio"
+              id="heads"
+              name="flipvalue"
+              value="Heads"
+              onChange={(e) => setGuess(e.target.value)}></input>
+            <label for="tails">Tails</label>
+            <input
+              type="radio"
+              id="tails"
+              name="flipvalue"
+              value="Tails"
+            onChange={(e) => setGuess(e.target.value)}></input>
+            <button type="submit" name="submit guess">
+              Submit Your Guess!
+            </button>
+          </form>
+        </div>
       </div>
 
       <div>
         <button onClick={coinFlip}>Flip!</button>
+      </div>
+
+      <div>
+        <button onClick={resetGame}>Start Next Game</button>
       </div>
     </div>
   );

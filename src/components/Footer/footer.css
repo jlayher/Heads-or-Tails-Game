@@ -1,0 +1,6 @@
+.footer_container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(114, 117, 116);
+    margin-top: auto;
+}

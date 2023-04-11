@@ -1,15 +1,20 @@
 import React from "react";
 import "./scorechart.css";
 
-const ScoreChart = () => {
+const ScoreChart = ({playerOneScore, playerTwoScore}) => {
   return (
     <div className="score_container">
-      <div className="score_container-title">Score Chart</div>
+      <div className="score_container-title">Current Sum of Bets</div>
 
       <div className="score_container-playerbox">
-        {/* calculate the winning player in app component*/}
-        <div>Player Losing owes Player Winning $10</div>
+        <div>Player 1 owes Player 2 ${playerOneScore}</div>
       </div>
+      {/* be able to name the 2 players */}
+      <div>
+        <input type="text" placeholder="Player Name"></input>
+      </div>
+
+      
     </div>
   );
 };
