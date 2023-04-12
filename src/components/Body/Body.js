@@ -32,18 +32,13 @@ const Body = () => {
     } else {
       setWinner("Player 1")
     }
-  
-
-    console.log(currentGuess)
   }, [flipValue])
 
   
   const coinFlip = () => {
     calcFlip();
     setToggleOutcome(true)
-    // declareWinner()
-    // timeOfFlip();
-    // didWin();
+    timeOfFlip();
   };
 
   const resetGame = () => {
@@ -58,8 +53,22 @@ const Body = () => {
   //return to this
   const timeOfFlip = () => {
     const today = new Date();
-    const hour = today.getHours();
-    const mins = today.getMinutes();
+    const month = today.getMonth() +1;
+    const day = today.getDate();
+    const year = today.getFullYear(); 
+    let hour = today.getHours();
+    if (hour < 10) {
+      hour = `0${hour}`   
+    }
+    let mins = today.getMinutes();
+    if (mins < 10) {
+      mins = `0${mins}`   
+    }
+    const secs = today.getSeconds();
+    const amPm = ( hour <= 12) ? "AM" : "PM";
+    const timeOfFlip = `${month}-${day}-${year}, ${hour}:${mins} ${amPm}`;
+   
+    setFlipTime(timeOfFlip);
   };
 
   //calculate heads or tails when coin flips
@@ -109,6 +118,10 @@ const Body = () => {
         <FlipLog
           currentPlayer={currentPlayer}
           currentBet={currentBet} 
+          flipValue={flipValue}
+          winner={winner}
+          currentGuess={currentGuess}
+          flipTime={flipTime}
         />
       </div>
       {toggleOutcome
@@ -120,6 +133,7 @@ const Body = () => {
           currentGuess={currentGuess}
           flipValue={flipValue}
           winner={winner}
+            
         />
       </div> 
         
