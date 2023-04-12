@@ -49,7 +49,7 @@ const Coin = ({ currentPlayer, currentBet, coinFlip, flipValue, setCurrentBet, h
               e.preventDefault();
               setGuess(guess);
               handleGuess(guess);
-              setGuess("");
+
             }}>
 
             <label for="heads">Heads</label>
@@ -85,13 +85,3 @@ const Coin = ({ currentPlayer, currentBet, coinFlip, flipValue, setCurrentBet, h
 }
 
 export default Coin
-
-
-
-
-
-      {/* <div>
-          Input Bet!
-        <input type='number' name="bet" placeholder={currentBet} onChange={(e) => setCurrentBet(e.target.value)} />
-        <input type='submit' name="submit bet"/>
-      </div> */}

@@ -5,3 +5,7 @@
     justify-content: space-between;
     align-items: flex-start;
 }
+
+.body_outcome_container {
+    /* display: none; */
+}
