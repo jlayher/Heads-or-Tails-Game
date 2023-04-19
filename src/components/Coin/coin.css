@@ -11,8 +11,20 @@
 .coin_container-current {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: space-around;
+}
+
+.coin_container-current_player {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.coin_container-current_outcome {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
 }
 
 .coin{
@@ -53,6 +65,10 @@
     align-items: center;
 }
 
+.coin_container-main_guess-submit {
+    margin-top: 5px;
+}
+
 .coin_container_main_guess_title {
     margin-bottom: 16px;
 }
@@ -75,10 +91,19 @@
 }
 
 
+.coin_container-main_buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .coin_container-main_flip {
-    margin-bottom: 16px;
+    margin: 0px 0px 30px 35px;
+    /* margin-bottom: 16px; */
 }
 
 .coin_container-main_reset {
+    margin: 0px 35px 30px 0px;
     /* margin-bottom: 16px; */
 }

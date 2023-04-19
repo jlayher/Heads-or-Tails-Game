@@ -20,11 +20,11 @@ const Coin = ({
   return (
     <div className="coin_container">
       <div className="coin_container-current">
-        <div>
+        <div className="coin_container-current_player">
           <div>Current Player: {currentPlayer}</div>
           <div>Player's Guess: {currentGuess}</div>
         </div>
-        <div>
+        <div className="coin_container-current_outcome">
           <div>Current Bet: {currentBet}</div>
           <div>Flip Outcome: {flipValue}</div>
         </div>
@@ -99,8 +99,8 @@ const Coin = ({
                 </div>
               </div>
 
-              <div>
-                <button type="submit" name="submit guess">
+              <div className="coin_container-main_guess-submit">
+                <button type="submit" name="submit guess" >
                   Submit Your Guess!
                 </button>
               </div>
@@ -108,12 +108,15 @@ const Coin = ({
           </div>
         </div>
 
-        <div className="coin_container-main_flip">
-          <button onClick={coinFlip}>Flip!</button>
+        <div className="coin_container-main_buttons">
+          <div className="coin_container-main_flip">
+            <button onClick={coinFlip}>Flip!</button>
+          </div>
+          <div className="coin_container-main_reset">
+            <button onClick={resetGame}>Start Next Game</button>
+          </div>
         </div>
-        <div className="coin_container-main_reset">
-          <button onClick={resetGame}>Start Next Game</button>
-        </div>
+        
       </div>
     </div>
   );
