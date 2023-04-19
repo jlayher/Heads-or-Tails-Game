@@ -5,6 +5,7 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: space-around;
+    
 }
 
 .coin_container-current {
@@ -14,18 +15,70 @@
     align-items: space-around;
 }
 
-.coin_container-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-}
-
 .coin{
     display: flex;
     justify-content: center;
 }
+
 .coin img {
     width: 250px;
     height: 250px;
+}
+
+.coin_container-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coin_container-main_bet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin_container_main_bet_title {
+    margin-bottom: 16px;
+}
+
+.coin_container_main_bet_form {
+    margin-bottom: 16px;
+}
+
+.coin_container-main_guess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin_container_main_guess_title {
+    margin-bottom: 16px;
+}
+
+.coin_container_main_guess_form {
+    margin-bottom: 16px;
+}
+
+.coin_container_main_guess_form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-around;
+}
+
+.coin_container_main_guess_form_radio {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
+}
+
+
+.coin_container-main_flip {
+    margin-bottom: 16px;
+}
+
+.coin_container-main_reset {
+    /* margin-bottom: 16px; */
 }
