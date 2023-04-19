@@ -15,6 +15,8 @@ const Body = () => {
   const [playerOneScore, setPlayerOneScore] = useState(0);
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
   const [winner, setWinner] = useState("");
+  const [checked, setChecked] = useState(false);
+
 
   const [toggleOutcome, setToggleOutcome] = useState(false)
 
@@ -35,11 +37,7 @@ const Body = () => {
   }, [flipValue])
 
   
-  const coinFlip = () => {
-    calcFlip();
-    setToggleOutcome(true)
-    timeOfFlip();
-  };
+
 
   const resetGame = () => {
     console.log(flipValue);
@@ -48,6 +46,7 @@ const Body = () => {
     changePlayer();
     setCurrentGuess("");
     setToggleOutcome(false);
+    setChecked(false);
   };
 
   //return to this
@@ -73,9 +72,11 @@ const Body = () => {
 
   //calculate heads or tails when coin flips
   const calcFlip = () => {
-    const randomFlip = Math.floor(Math.random() * 2);
-    const flip = randomFlip ? "Heads" : "Tails";
-    setFlipValue(flip);
+    
+      const randomFlip = Math.floor(Math.random() * 2);
+      const flip = randomFlip ? "Heads" : "Tails";
+      setFlipValue(flip);
+
   };
 
   //change current player when coin flips
@@ -92,7 +93,22 @@ const Body = () => {
   };
 
   const handleGuess = (guess) => {
-    setCurrentGuess(guess);
+    if (guess === "") {
+      alert("Please select Heads or Tails")
+    } else {
+      setCurrentGuess(guess);
+    }
+
+  };
+
+  const coinFlip = () => {
+    if (currentGuess === "") {
+      alert("Please select Heads or Tails");
+    } else {
+      calcFlip();
+      setToggleOutcome(true)
+      timeOfFlip();
+    }
   };
 
   return (
@@ -114,6 +130,8 @@ const Body = () => {
           handleGuess={handleGuess}
           currentGuess={currentGuess}
           resetGame={resetGame}
+          checked={checked}
+          setChecked={setChecked}
         />
         <FlipLog
           currentPlayer={currentPlayer}

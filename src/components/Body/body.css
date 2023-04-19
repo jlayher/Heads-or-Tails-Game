@@ -1,9 +1,8 @@
 .body_container {
-    /* margin-top: 2rem; */
-    margin: 2rem;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    margin: .25rem;
+    display: flex;
+    min-height: 80vh;
 }
 
 .body_outcome_container {

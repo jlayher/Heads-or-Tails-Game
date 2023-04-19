@@ -1,5 +1,8 @@
 
 
 .score_container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     border: 2px solid black;
 }
