@@ -70,8 +70,8 @@ const Coin = ({
                 handleGuess(guess);
               }}>
               <div className="coin_container_main_guess_form_radio">
-                <div>
-                  <label for="heads">Heads</label>
+                <div className="coin_container_main_guess_form_radio_btn">
+                  <label for="heads">Heads </label>
                   <input
                     type="radio"
                     id="heads"
@@ -84,8 +84,8 @@ const Coin = ({
                     }}></input>
                 </div>
 
-                <div>
-                  <label for="tails">Tails</label>
+                <div className="coin_container_main_guess_form_radio_btn">
+                  <label for="tails">Tails </label>
                   <input
                     type="radio"
                     id="tails"
@@ -97,12 +97,11 @@ const Coin = ({
                       setChecked();
                     }}></input>
                 </div>
-              </div>
-
-              <div className="coin_container-main_guess-submit">
-                <button type="submit" name="submit guess" >
-                  Submit Your Guess!
-                </button>
+                <div className="coin_container-main_guess-submit">
+                  <button type="submit" name="submit guess" >
+                    Submit Your Guess!
+                  </button>
+                </div>
               </div>
             </form>
           </div>
