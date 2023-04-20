@@ -9,6 +9,7 @@ const FlipLog = ({currentPlayer, currentBet, flipValue, winner, currentGuess, fl
       <div className='flip_container-title'>Flip Log</div>
 
       {/* make this into a card component */}
+      
       <Log
         currentBet={currentBet}
         currentPlayer={currentPlayer} 

@@ -16,15 +16,13 @@ const Body = () => {
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
   const [winner, setWinner] = useState("");
   const [checked, setChecked] = useState(false);
-
-
+  const [flipArray, setFlipArray] = useState([])
   const [toggleOutcome, setToggleOutcome] = useState(false)
 
 //toggle classname normal or none when 
 
 
   useEffect(() => {
-    console.log("useEffect is working")
     if (currentPlayer === "Player 1" && flipValue === currentGuess) {
       setWinner("Player 1")
     } else if (currentPlayer === "Player 2" && flipValue === currentGuess) {
@@ -34,13 +32,18 @@ const Body = () => {
     } else {
       setWinner("Player 1")
     }
+    console.log(flipArray)
   }, [flipValue])
 
-  
 
+
+  // useEffect(() => {
+  //   createLog();
+  //   console.log(flipArray)   
+  // }, [flipTime])
 
   const resetGame = () => {
-    console.log(flipValue);
+
     setFlipValue("");
     setCurrentBet(0);
     changePlayer();
@@ -76,7 +79,7 @@ const Body = () => {
       const randomFlip = Math.floor(Math.random() * 2);
       const flip = randomFlip ? "Heads" : "Tails";
       setFlipValue(flip);
-
+    createLog();
   };
 
   //change current player when coin flips
@@ -108,8 +111,25 @@ const Body = () => {
       calcFlip();
       setToggleOutcome(true)
       timeOfFlip();
+  
     }
   };
+
+
+  const createLog = () => {
+    const arr = flipArray;
+    let log = {
+      flipTime: flipTime,
+      currentPlayer: currentPlayer,
+      flipValue: flipValue,
+      winner: winner,
+      currentBet: currentBet,
+
+    }
+    arr.push(log)
+    setFlipArray(arr);
+
+  }
 
   return (
     <>
@@ -134,6 +154,7 @@ const Body = () => {
           setChecked={setChecked}
         />
         <FlipLog
+          flipArray={flipArray}
           currentPlayer={currentPlayer}
           currentBet={currentBet} 
           flipValue={flipValue}
@@ -154,7 +175,6 @@ const Body = () => {
             
         />
       </div> 
-        
         :
         <></>
       }
