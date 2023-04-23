@@ -1,29 +1,33 @@
-import React from 'react'
-import './fliplog.css'
-import Log from './Log/Log'
+import { React, useState } from "react";
+import "./fliplog.css";
 
 
-const FlipLog = ({currentPlayer, currentBet, flipValue, winner, currentGuess, flipTime}) => {
+const FlipLog = ({
+  history
+}) => {
+  const logs = () => {
+    if (history.length > 0) {
+      return history.map((game) => (
+        <>
+          <div>Time of Flip: {game.time}</div>
+          <div>Player: {game.player}</div>
+          <div>Bet: ${game.bet}</div>
+          <div>Player Guess: {game.guess}</div>
+          <div>Flip Value: {game.flip}</div>
+          <div>Winner: {game.winner}</div>
+          <br />
+        </>
+      ));
+    }
+  };
   return (
-    <div className='flip_container'>
-      <div className='flip_container-title'>Flip Log</div>
-
-      {/* make this into a card component */}
-      
-      <Log
-        currentBet={currentBet}
-        currentPlayer={currentPlayer} 
-        flipValue={flipValue}
-        winner={winner}
-        currentGuess={currentGuess}
-        flipTime={flipTime}
-        />
-
+    <div className="flip_container">
+      <div className="flip_container-title">Flip Log</div>
+      {logs()}
     </div>
-  )
-}
+  );
+};
 
-export default FlipLog
-
+export default FlipLog;
 
 //create an empty array in state to track moves

@@ -25,7 +25,7 @@ const Coin = ({
           <div>Player's Guess: {currentGuess}</div>
         </div>
         <div className="coin_container-current_outcome">
-          <div>Current Bet: {currentBet}</div>
+          <div>Current Bet: ${currentBet}</div>
           <div>Flip Outcome: {flipValue}</div>
         </div>
       </div>
@@ -60,7 +60,7 @@ const Coin = ({
 
         <div className="coin_container-main_guess">
           <div className="coin_container_main_guess_title">
-            Select Your Guess {currentPlayer}
+            Select Your Guess, {currentPlayer}
           </div>
           <div className="coin_container_main_guess_form">
             <form
@@ -109,10 +109,10 @@ const Coin = ({
 
         <div className="coin_container-main_buttons">
           <div className="coin_container-main_flip">
-            <button onClick={coinFlip}>Flip!</button>
+            <button type="submit" onClick={coinFlip}>Flip!</button>
           </div>
           <div className="coin_container-main_reset">
-            <button onClick={resetGame}>Start Next Game</button>
+            <button type="submit" onClick={resetGame}>Start Next Game</button>
           </div>
         </div>
         

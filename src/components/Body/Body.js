@@ -11,18 +11,33 @@ const Body = () => {
   const [currentGuess, setCurrentGuess] = useState("");
   const [flipValue, setFlipValue] = useState("");
   const [flipTime, setFlipTime] = useState("");
-  const [logsArray, setLogsArray] = useState([]);
   const [playerOneScore, setPlayerOneScore] = useState(0);
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
   const [winner, setWinner] = useState("");
   const [checked, setChecked] = useState(false);
-  const [flipArray, setFlipArray] = useState([])
-  const [toggleOutcome, setToggleOutcome] = useState(false)
-
-//toggle classname normal or none when 
-
+  const [flipArray, setFlipArray] = useState([]);
+  const [toggleOutcome, setToggleOutcome] = useState(false);
+  const [history, setHistory] = useState([]);
+  const [updateHistory, setUpdateHistory] = useState(false)
 
   useEffect(() => {
+    calculateWinner();
+  }, [flipValue])
+
+
+  const createNewHistory = () => {
+    let newHistory = {
+      time: `${flipTime}`,
+      player: `${currentPlayer}`,
+      bet: currentBet,
+      guess: `${currentGuess}`,
+      flip: `${flipValue}`,
+      winner: `${winner}`,
+    }
+    setHistory([...history, newHistory])
+  }
+
+  const calculateWinner = () => {
     if (currentPlayer === "Player 1" && flipValue === currentGuess) {
       setWinner("Player 1")
     } else if (currentPlayer === "Player 2" && flipValue === currentGuess) {
@@ -32,18 +47,10 @@ const Body = () => {
     } else {
       setWinner("Player 1")
     }
-    console.log(flipArray)
-  }, [flipValue])
-
-
-
-  // useEffect(() => {
-  //   createLog();
-  //   console.log(flipArray)   
-  // }, [flipTime])
+  }
 
   const resetGame = () => {
-
+    createNewHistory();
     setFlipValue("");
     setCurrentBet(0);
     changePlayer();
@@ -59,6 +66,9 @@ const Body = () => {
     const day = today.getDate();
     const year = today.getFullYear(); 
     let hour = today.getHours();
+    if (hour > 12) {
+      hour = hour - 12;
+    }
     if (hour < 10) {
       hour = `0${hour}`   
     }
@@ -67,19 +77,16 @@ const Body = () => {
       mins = `0${mins}`   
     }
     const secs = today.getSeconds();
-    const amPm = ( hour <= 12) ? "AM" : "PM";
-    const timeOfFlip = `${month}-${day}-${year}, ${hour}:${mins} ${amPm}`;
-   
+    const amPm = ( hour >= 12) ? "AM" : "PM";
+    const timeOfFlip = `${hour}:${mins} ${amPm} ${month}-${day}-${year}`;
     setFlipTime(timeOfFlip);
   };
 
   //calculate heads or tails when coin flips
   const calcFlip = () => {
-    
       const randomFlip = Math.floor(Math.random() * 2);
       const flip = randomFlip ? "Heads" : "Tails";
       setFlipValue(flip);
-    createLog();
   };
 
   //change current player when coin flips
@@ -101,7 +108,6 @@ const Body = () => {
     } else {
       setCurrentGuess(guess);
     }
-
   };
 
   const coinFlip = () => {
@@ -111,25 +117,8 @@ const Body = () => {
       calcFlip();
       setToggleOutcome(true)
       timeOfFlip();
-  
     }
   };
-
-
-  const createLog = () => {
-    const arr = flipArray;
-    let log = {
-      flipTime: flipTime,
-      currentPlayer: currentPlayer,
-      flipValue: flipValue,
-      winner: winner,
-      currentBet: currentBet,
-
-    }
-    arr.push(log)
-    setFlipArray(arr);
-
-  }
 
   return (
     <>
@@ -154,7 +143,7 @@ const Body = () => {
           setChecked={setChecked}
         />
         <FlipLog
-          flipArray={flipArray}
+          history={history}
           currentPlayer={currentPlayer}
           currentBet={currentBet} 
           flipValue={flipValue}
@@ -172,13 +161,12 @@ const Body = () => {
           currentGuess={currentGuess}
           flipValue={flipValue}
           winner={winner}
-            
+          flipTime={flipTime}
         />
       </div> 
         :
         <></>
       }
-      
     </>
   );
 }
