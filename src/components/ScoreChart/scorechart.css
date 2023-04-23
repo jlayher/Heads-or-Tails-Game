@@ -2,7 +2,26 @@
 
 .score_container {
     display: flex;
-    flex: 1;
+    flex: .5;
     flex-direction: column;
-    border: 2px solid black;
+    align-items: center;
+
+    background-color: bisque;
+    /* justify-content: center; */
+    /* border: 2px solid black; */
+}
+
+.score_container-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    /* border: 2px solid black; */
+}
+
+.score_container-playerbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

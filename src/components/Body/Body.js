@@ -11,14 +11,14 @@ const Body = () => {
   const [currentGuess, setCurrentGuess] = useState("");
   const [flipValue, setFlipValue] = useState("");
   const [flipTime, setFlipTime] = useState("");
-  const [playerOneScore, setPlayerOneScore] = useState(0);
-  const [playerTwoScore, setPlayerTwoScore] = useState(0);
+  let [playerOneScore, setPlayerOneScore] = useState(0);
+  let [playerTwoScore, setPlayerTwoScore] = useState(0);
   const [winner, setWinner] = useState("");
   const [checked, setChecked] = useState(false);
-  const [flipArray, setFlipArray] = useState([]);
+  // const [flipArray, setFlipArray] = useState([]);
   const [toggleOutcome, setToggleOutcome] = useState(false);
   const [history, setHistory] = useState([]);
-  const [updateHistory, setUpdateHistory] = useState(false)
+  // const [updateHistory, setUpdateHistory] = useState(false)
 
   useEffect(() => {
     calculateWinner();
@@ -50,9 +50,11 @@ const Body = () => {
   }
 
   const resetGame = () => {
+    updateScores();
     createNewHistory();
+   
     setFlipValue("");
-    setCurrentBet(0);
+    // setCurrentBet(0);
     changePlayer();
     setCurrentGuess("");
     setToggleOutcome(false);
@@ -120,12 +122,32 @@ const Body = () => {
     }
   };
 
+
+  //current bet gets added like a string
+  const updateScores = () => {
+    let bet = parseInt(currentBet)
+    if (currentPlayer === "Player 1" && winner === "Player 1") {
+      setPlayerOneScore((playerOneScore) => playerOneScore + bet);
+      setPlayerTwoScore((playerTwoScore) => playerTwoScore - bet);
+    } else if (currentPlayer === "Player 1" && winner === "Player 2") {
+      setPlayerOneScore((playerOneScore) => playerOneScore - bet);
+      setPlayerTwoScore((playerTwoScore) => playerTwoScore + bet);
+    } else if (currentPlayer === "Player 2" && winner === "Player 2") {
+      setPlayerTwoScore((playerTwoScore) => playerTwoScore + bet);
+      setPlayerOneScore((playerOneScore) => playerOneScore - bet);
+    }else if (currentPlayer === "Player 2" && winner === "Player 1") {
+      setPlayerTwoScore((playerTwoScore) => playerTwoScore - bet);
+      setPlayerOneScore((playerOneScore) => playerOneScore + bet);
+    }
+  }
+
   return (
     <>
       <div className="body_container">
         <ScoreChart
           playerOneScore={playerOneScore}
           playerTwoScore={playerTwoScore}
+          currentBet={currentBet}
         />
         <Coin
           currentPlayer={currentPlayer}
