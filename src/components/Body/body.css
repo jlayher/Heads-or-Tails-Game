@@ -1,8 +1,6 @@
 .body_container {
     display: flex;
-    margin: .25rem;
-    display: flex;
-    min-height: 80vh;
+    height: 85vh;
 }
 
 .body_outcome_container {

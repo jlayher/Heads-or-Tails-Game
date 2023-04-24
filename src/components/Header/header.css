@@ -1,14 +1,22 @@
 
 .header_container {
+    display: flex;
+    flex-direction: column;
+    background-color: #1b0052;
+    background-image: url('../../../public/black-paper.png');
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     background-color: rgb(117, 103, 139);
+    min-height: 10vh;
 }
 .title_container {
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 }
 
 .explain_container {
+    width: 50%;
     display: flex;
-    justify-content: flex-end;
-    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
 }

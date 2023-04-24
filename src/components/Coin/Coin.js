@@ -51,7 +51,7 @@ const Coin = ({
                 value={bet}
                 onChange={(e) => setBet(e.target.value)}
               />
-              <button type="submit" name="submit bet">
+              <button type="submit" name="submit bet" className="bet_btn">
                 Place Bet
               </button>
             </form>
