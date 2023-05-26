@@ -47,6 +47,7 @@ const Coin = ({
               <input
                 type="number"
                 name="bet"
+                className="coin_container_main_bet_input"
                 placeholder={0}
                 value={bet}
                 onChange={(e) => setBet(e.target.value)}

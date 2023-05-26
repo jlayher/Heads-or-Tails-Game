@@ -1,6 +1,7 @@
 .body_container {
     display: flex;
-    height: 85vh;
+    height: 86vh;
+    background-color: rgb(71, 71, 61);
 }
 
 .body_outcome_container {

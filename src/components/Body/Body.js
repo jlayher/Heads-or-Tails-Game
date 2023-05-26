@@ -50,6 +50,8 @@ const Body = () => {
   }
 
   const resetGame = () => {
+    if (currentGuess !== "" && flipTime !== "") {
+      setCurrentBet(0)
     updateScores();
     createNewHistory();
    
@@ -58,7 +60,10 @@ const Body = () => {
     changePlayer();
     setCurrentGuess("");
     setToggleOutcome(false);
-    setChecked(false);
+      setChecked(false);
+
+    }
+
   };
 
   //return to this
@@ -78,9 +83,12 @@ const Body = () => {
     if (mins < 10) {
       mins = `0${mins}`   
     }
-    const secs = today.getSeconds();
+    let secs = today.getSeconds();
+    if (secs < 10) {
+      secs = `0${secs}` 
+    }
     const amPm = ( hour >= 12) ? "AM" : "PM";
-    const timeOfFlip = `${hour}:${mins} ${amPm} ${month}-${day}-${year}`;
+    const timeOfFlip = `${hour}:${mins}:${secs} ${amPm} ${month}-${day}-${year}`;
     setFlipTime(timeOfFlip);
   };
 

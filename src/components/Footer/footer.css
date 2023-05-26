@@ -1,9 +1,11 @@
 .footer_container {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: rgb(114, 117, 116);
     background-image: url('../../../public/black-paper.png');
     margin-top: auto;
 
-    min-height: 5vh;
+    min-height: 4vh;
+    border: 1px solid black;
 }
