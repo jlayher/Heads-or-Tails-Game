@@ -11,9 +11,9 @@ const Outcome = ({currentPlayer, currentBet, currentGuess, flipValue, winner, fl
       <div className='outcome_container'>
         <div>Current Player: {currentPlayer}</div>
         <div>Current Guess: {currentGuess}</div>
-      <div>Current Flip Value: {flipValue}</div>
+        <div>Current Flip Value: {flipValue}</div>
         <div>Time of Flip: {flipTime}</div>
-      <div>{winner} won ${currentBet}</div>
+        <div>{winner} won ${currentBet}</div>
       </div>
     </>
 

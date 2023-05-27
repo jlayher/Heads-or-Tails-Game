@@ -1,13 +1,17 @@
-import React from "react";
+import { React, useState, useEffect } from 'react'
 import "./scorechart.css";
 
-const ScoreChart = ({ playerOneScore, playerTwoScore }) => {
+const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, player1Name, player2Name }) => {
+
+
+
+
   //whos in first
   const calcCurrentWinner = () => {
     if (playerOneScore > playerTwoScore) {
-      return "Player 1";
+      return `${player1Name}`;
     } else if (playerTwoScore > playerOneScore) {
-      return "Player 2";
+      return `${player2Name}`;
     } else {
       return "";
     }
@@ -22,28 +26,40 @@ const ScoreChart = ({ playerOneScore, playerTwoScore }) => {
 
         <div className="score_container_content">
           <div className="score_container-playerbox">
+            {/* <div>Players:</div>
+            <div>Player 1</div>
+            <div>Player 2</div> */}
+
             <div>Current Winner:</div>
             <div>{calcCurrentWinner()}</div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div>Amount Owed:</div>
             <div>${Math.abs(playerOneScore)}</div>
+            <div>
+              {/* onClick open the modal, and set state*/}
+              <button
+                type="button"
+                className="score_container_button"
+                onClick={() => {
+                  setOpenModal(true)
+                }}>
+                Set Player Names
+              </button>
+            </div>
           </div>
+
           <div className="score_container_explain">
             <div>
-            This application allows users to place a monetary bet, a guess as to
-            the outcome of the coing flip, manages a log of the flip history,
-            and displays the current winner and money owed! To play, place your
-            bet, select and submit your guess, click "Flip!", and click "Start
-            Next Game"!
+              This application allows users to place a monetary bet, a guess as
+              to the outcome of the coin flip, manages a log of the flip
+              history, and displays the current winner and money owed! To play,
+              place your bet, select and submit your guess, click "Flip!", and
+              click "Start Next Game"!
             </div>
           </div>
         </div>
       </div>
-      {/* be able to name the 2 players */}
-      {/* <div>
-        <input type="text" placeholder="Player Name"></input>
-      </div> */}
     </>
   );
 };

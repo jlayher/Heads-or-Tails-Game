@@ -4,6 +4,7 @@ import Coin from '../Coin/Coin'
 import ScoreChart from '../ScoreChart/ScoreChart'
 import FlipLog from '../FlipLog/FlipLog'
 import Outcome from '../Outcome/Outcome'
+import Modal from '../Modal/Modal'
 
 const Body = () => {
   const [currentPlayer, setCurrentPlayer] = useState("Player 1");
@@ -19,12 +20,34 @@ const Body = () => {
   const [toggleOutcome, setToggleOutcome] = useState(false);
   const [history, setHistory] = useState([]);
   // const [updateHistory, setUpdateHistory] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
+  const [player1Name, setPlayer1Name] = useState("Player 1")
+  const [player2Name, setPlayer2Name] = useState("Player 2")
+
+
+
+  //set this to true in the modal
+  const [playerNameChange, setPlayerNameChange] = useState(false);
+
 
   useEffect(() => {
     calculateWinner();
   }, [flipValue])
 
 
+
+//DEAL WITH THIS!  Swap names out after input
+  useEffect(() => {
+    
+  }, []);
+
+  const handleNames = (name1, name2) => {
+    setPlayer1Name(name1);
+    setPlayer2Name(name2);
+    setCurrentPlayer(name1)
+  }
+
+//LOOK THIS OVER
   const createNewHistory = () => {
     let newHistory = {
       time: `${flipTime}`,
@@ -38,14 +61,14 @@ const Body = () => {
   }
 
   const calculateWinner = () => {
-    if (currentPlayer === "Player 1" && flipValue === currentGuess) {
-      setWinner("Player 1")
-    } else if (currentPlayer === "Player 2" && flipValue === currentGuess) {
-      setWinner("Player 2")
-    } else if (currentPlayer === "Player 1" && flipValue !== currentGuess) {
-      setWinner("Player 2")
+    if (currentPlayer === `${player1Name}` && flipValue === currentGuess) {
+      setWinner(`${player1Name}`)
+    } else if (currentPlayer === `${player2Name}` && flipValue === currentGuess) {
+      setWinner(`${player2Name}`)
+    } else if (currentPlayer === `${player1Name}` && flipValue !== currentGuess) {
+      setWinner(`${player2Name}`)
     } else {
-      setWinner("Player 1")
+      setWinner(`${player1Name}`)
     }
   }
 
@@ -66,7 +89,7 @@ const Body = () => {
 
   };
 
-  //return to this
+
   const timeOfFlip = () => {
     const today = new Date();
     const month = today.getMonth() +1;
@@ -101,10 +124,10 @@ const Body = () => {
 
   //change current player when coin flips
   const changePlayer = () => {
-    if (currentPlayer === "Player 1") {
-      setCurrentPlayer("Player 2");
+    if (currentPlayer === `${player1Name}`) {
+      setCurrentPlayer(`${player2Name}`);
     } else {
-      setCurrentPlayer("Player 1");
+      setCurrentPlayer(`${player1Name}`);
     }
   };
 
@@ -120,6 +143,9 @@ const Body = () => {
     }
   };
 
+
+
+
   const coinFlip = () => {
     if (currentGuess === "") {
       alert("Please select Heads or Tails");
@@ -134,16 +160,16 @@ const Body = () => {
   //current bet gets added like a string
   const updateScores = () => {
     let bet = parseInt(currentBet)
-    if (currentPlayer === "Player 1" && winner === "Player 1") {
+    if (currentPlayer === `${player1Name}` && winner === `${player1Name}`) {
       setPlayerOneScore((playerOneScore) => playerOneScore + bet);
       setPlayerTwoScore((playerTwoScore) => playerTwoScore - bet);
-    } else if (currentPlayer === "Player 1" && winner === "Player 2") {
+    } else if (currentPlayer === `${player1Name}` && winner === `${player2Name}`) {
       setPlayerOneScore((playerOneScore) => playerOneScore - bet);
       setPlayerTwoScore((playerTwoScore) => playerTwoScore + bet);
-    } else if (currentPlayer === "Player 2" && winner === "Player 2") {
+    } else if (currentPlayer === `${player2Name}` && winner === `${player2Name}`) {
       setPlayerTwoScore((playerTwoScore) => playerTwoScore + bet);
       setPlayerOneScore((playerOneScore) => playerOneScore - bet);
-    }else if (currentPlayer === "Player 2" && winner === "Player 1") {
+    }else if (currentPlayer === `${player2Name}` && winner === `${player1Name}`) {
       setPlayerTwoScore((playerTwoScore) => playerTwoScore - bet);
       setPlayerOneScore((playerOneScore) => playerOneScore + bet);
     }
@@ -151,11 +177,39 @@ const Body = () => {
 
   return (
     <>
+         {toggleOutcome
+        ? 
+          <div className='body_outcome_container' >
+        <Outcome
+          currentPlayer={currentPlayer}
+          currentBet={currentBet}
+          currentGuess={currentGuess}
+          flipValue={flipValue}
+          winner={winner}
+          flipTime={flipTime}
+        />
+      </div> 
+        :
+        <></>
+      }
       <div className="body_container">
+        
+        {openModal && <Modal
+          setOpenModal={setOpenModal} 
+          player1Name={player1Name}
+          player2Name={player2Name}
+          setPlayer1Name={setPlayer1Name}
+          setPlayer2Name={setPlayer2Name}
+          handleNames={handleNames}
+          />}
         <ScoreChart
           playerOneScore={playerOneScore}
           playerTwoScore={playerTwoScore}
+          player1Name={player1Name}
+          player2Name={player2Name}
           currentBet={currentBet}
+          setOpenModal={setOpenModal}
+          openModal={openModal}
         />
         <Coin
           currentPlayer={currentPlayer}
@@ -182,21 +236,8 @@ const Body = () => {
           flipTime={flipTime}
         />
       </div>
-      {toggleOutcome
-        ? 
-          <div className='body_outcome_container' >
-        <Outcome
-          currentPlayer={currentPlayer}
-          currentBet={currentBet}
-          currentGuess={currentGuess}
-          flipValue={flipValue}
-          winner={winner}
-          flipTime={flipTime}
-        />
-      </div> 
-        :
-        <></>
-      }
+
+   
     </>
   );
 }
