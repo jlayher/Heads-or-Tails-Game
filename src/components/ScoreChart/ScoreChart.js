@@ -36,6 +36,8 @@ const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, p
             <br />
             <div>Amount Owed:</div>
             <div>${Math.abs(playerOneScore)}</div>
+            <br />
+            <br />
             <div>
               {/* onClick open the modal, and set state*/}
               <button
@@ -49,7 +51,9 @@ const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, p
             </div>
           </div>
 
-          <div className="score_container_explain">
+          
+        </div>
+        <div className="score_container_explain">
             <div>
               This application allows users to place a monetary bet, a guess as
               to the outcome of the coin flip, manages a log of the flip
@@ -57,7 +61,6 @@ const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, p
               place your bet, select and submit your guess, click "Flip!", and
               click "Start Next Game"!
             </div>
-          </div>
         </div>
       </div>
     </>
