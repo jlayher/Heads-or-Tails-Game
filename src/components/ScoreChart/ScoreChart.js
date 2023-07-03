@@ -30,11 +30,11 @@ const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, p
             <div>Player 1</div>
             <div>Player 2</div> */}
 
-            <div className="score_container-playerbox_current">Current Winner:</div>
+            <div className="score_container-playerbox_current">Current Winner</div>
             <div>{calcCurrentWinner()}</div>
             <br />
             <br />
-            <div>Amount Owed:</div>
+            <div>Amount Owed</div>
             <div>${Math.abs(playerOneScore)}</div>
             <br />
             <br />

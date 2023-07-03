@@ -31,7 +31,8 @@ const Coin = ({
       </div>
 
       <div className="coin">
-        <img src="/heads_test.jpg" />
+        <img  src="/heads-pic.png" />
+        <img className="coin_img" src="/tails-pic.png" />
       </div>
 
       <div className="coin_container-main">
