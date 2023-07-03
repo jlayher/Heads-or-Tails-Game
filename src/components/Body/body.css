@@ -1,6 +1,7 @@
 .body_container {
     display: flex;
-    height: 88vh;
+    height: 80vh;
+    margin-top: 45px;;
     background-color: #f7fff7;
     background-color: #eee5e9;
     background-image: url('../../../public/cardboard-flat.png');
