@@ -186,7 +186,8 @@ const Body = () => {
           currentGuess={currentGuess}
           flipValue={flipValue}
           winner={winner}
-          flipTime={flipTime}
+            flipTime={flipTime}
+            resetGame={resetGame}
         />
       </div> 
         :

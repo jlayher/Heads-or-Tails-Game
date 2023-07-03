@@ -1,7 +1,7 @@
 import React from 'react'
 import "./outcome.css"
 
-const Outcome = ({currentPlayer, currentBet, currentGuess, flipValue, winner, flipTime}) => {
+const Outcome = ({currentPlayer, currentBet, currentGuess, resetGame, flipValue, winner, flipTime}) => {
 
 
 
@@ -14,6 +14,7 @@ const Outcome = ({currentPlayer, currentBet, currentGuess, flipValue, winner, fl
         <div>Current Flip Value: {flipValue}</div>
         <div>Time of Flip: {flipTime}</div>
         <div>{winner} won ${currentBet}</div>
+        <button className="coin_container-main_reset" type="submit" onClick={resetGame}>Start Next Game</button>
       </div>
     </>
 

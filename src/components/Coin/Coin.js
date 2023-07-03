@@ -112,9 +112,7 @@ const Coin = ({
           <div className="coin_container-main_flip">
             <button type="submit" onClick={coinFlip}>Flip!</button>
           </div>
-          <div className="coin_container-main_reset">
-            <button type="submit" onClick={resetGame}>Start Next Game</button>
-          </div>
+          
         </div>
         
       </div>

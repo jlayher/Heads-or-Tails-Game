@@ -11,6 +11,13 @@
     border-radius: 4px;
     border: 1px solid black;
     overflow-y: auto;
+    border-radius: 60px;
+    border: 1px solid black;
+    margin-right: 25px;
+    margin-left: 25px;
+    -webkit-box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
+    -moz-box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
+    box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
 
 }
 

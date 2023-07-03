@@ -4,7 +4,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(71, 71, 61);
+    /* background-color: rgb(71, 71, 61); */
+    background-color: rgb(36, 36, 34);
+    background-color: rgb(72, 24, 14);
+    background-color: rgb(45, 13, 6);
+    background-color: #f7fff7;
+    background-color: #eee5e9;
+    background-image: url('../public/cardboard-flat.png');
 }
 
 /* .main {

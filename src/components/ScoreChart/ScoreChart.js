@@ -30,7 +30,7 @@ const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, p
             <div>Player 1</div>
             <div>Player 2</div> */}
 
-            <div>Current Winner:</div>
+            <div className="score_container-playerbox_current">Current Winner:</div>
             <div>{calcCurrentWinner()}</div>
             <br />
             <br />
@@ -38,17 +38,7 @@ const ScoreChart = ({ playerOneScore, playerTwoScore, setOpenModal, openModal, p
             <div>${Math.abs(playerOneScore)}</div>
             <br />
             <br />
-            <div>
-              {/* onClick open the modal, and set state*/}
-              <button
-                type="button"
-                className="score_container_button"
-                onClick={() => {
-                  setOpenModal(true)
-                }}>
-                Set Player Names
-              </button>
-            </div>
+            
           </div>
 
           
