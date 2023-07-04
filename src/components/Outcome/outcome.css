@@ -23,10 +23,8 @@
     -moz-box-shadow: 0px 0px 27px 25px rgba(0,0,0,0.29);
     box-shadow: 0px 0px 27px 25px rgba(0,0,0,0.29);
     font-family: 'Abril Fatface', cursive;
-          text-shadow: 1px 1px 1px rgb(0, 0, 0);
-          text-shadow: 2px 2px 2px rgb(114, 110, 110);
-          text-shadow: 2px 2px 2px rgb(90, 87, 87);
           color: #050607;
+          text-shadow: rgb(147, 147, 147) 1px 0 1px;
           
 }
 
@@ -34,7 +32,7 @@
     padding: 10px 0px;
     font-size: 1.25rem;;
     font-family: 'Abril Fatface', cursive;
-          text-shadow: 1px 1px 1px rgb(0, 0, 0);
+          /* text-shadow: 1px 1px 1px rgb(0, 0, 0); */
 }
 
 .coin_container-main_reset {
@@ -44,6 +42,7 @@
     font-weight: 200;
     margin-left: 36px;
     font-family: 'Abril Fatface', cursive;
-      text-shadow: 0px 0px 1px rgb(0, 0, 0);
+    text-shadow: rgb(147, 147, 147) 1px 0 1px;
+      /* text-shadow: 0px 0px 1px rgb(0, 0, 0); */
     /* margin-bottom: 16px; */
 }
