@@ -2,8 +2,9 @@
     display: flex;
     height: 80vh;
     margin-top: 45px;;
-    background-color: #f7fff7;
-    background-color: #eee5e9;
+    background-color: #c1b9bc;
+    background-color: #8d888a;
+    background-color: #6e696b;
     background-image: url('../../../public/cardboard-flat.png');
 }
 

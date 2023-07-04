@@ -3,15 +3,15 @@
     display: flex;
     flex: 1.6;
     flex-direction: column;
-    justify-content: space-around;
-    background-color: #806646;
-    background-color: #350c0c;
-    background-image: url('../../../public/cardboard-flat.png');
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('../../../public/wood3dbrev.jpg');
     border-radius: 60px 60px 180px 180px;
-    -webkit-box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
-    -moz-box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
-    box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
-  border: 1.5px solid black;
+    -webkit-box-shadow: 10px 10px 27px 16px rgba(0,0,0,0.22);
+    -moz-box-shadow: 10px 10px 27px 16px rgba(0,0,0,0.22);
+    box-shadow: 10px 10px 27px 16px rgba(0,0,0,0.22);
+  border: 2px solid black;
+  text-shadow: 4px 4px 5px rgb(115, 111, 111);
 }
 
 button {
@@ -23,7 +23,7 @@ button {
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
-  font-size: 18px;
+
   padding: 0 18px;
   line-height: 40px;
   text-align: center;
@@ -43,12 +43,6 @@ button:active {
 }
 
 
-@media (min-width: 768px) {
-  button{
-    min-width: 120px;
-    padding: 0 25px;
-  }
-}
 
 .bet_btn {
     margin-left: 2rem;
@@ -68,28 +62,33 @@ button:active {
 }
 
 
-
-@media (max-width: 420px) {
-  .button-84 {
-    height: 48px;
-  }
-}
-
 .coin_container-current {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: space-around;
+    background-color: #ffe4c4;
+    background-image: url('../../../public/black-paper.png');
+    border-radius: 16px;
+    width: 80%;
+  
+    
 }
 
 .coin_container-current_player {
     display: flex;
     flex-direction: column;
+
     /* margin-left: 25px; */
 }
 
 .coin_container-current_player div {
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-family: 'Abril Fatface', cursive;
+  text-shadow: 2px 2px 2px rgb(114, 110, 110);
+  text-shadow: 1px 1.5px 2px rgb(125, 120, 120);
+  color: #050607;
+  
 }
 
 .coin_container-current_outcome {
@@ -100,7 +99,14 @@ button:active {
 }
 
 .coin_container-current_outcome div {
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-family: 'Abril Fatface', cursive;
+  text-shadow: 4px 4px 5px rgb(43, 43, 43);
+  text-shadow: 2px 2px 2px rgb(114, 110, 110);
+  text-shadow: 2px 2px 2px rgb(90, 87, 87);
+  color: #050607;
+  
+
 }
 
 .coin{
@@ -117,6 +123,19 @@ button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #d9d3cc;
+    background-image: url('../../../public/black-paper.png');
+    border-radius: 16px 16px 175px 175px;
+    width: 100%;
+    height: 35%;
+    align-self: flex-start;
+    padding-top: 10px;
+    border-left: 1px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 1px solid black;
+    
+
 }
 
 .coin_container-main_bet {
@@ -224,6 +243,21 @@ button:active {
   width: 400px;
   height: 400px;;
 }
+
+@media (min-width: 768px) {
+  button{
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .button-84 {
+    height: 48px;
+  }
+}
+
 
 @media screen and (min-width: 768px) {
   .coin_container-main_guess-submit button{

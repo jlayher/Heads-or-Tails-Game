@@ -12,11 +12,13 @@
     border: 1px solid black;
     margin-right: 25px;
     margin-left: 25px;
-    -webkit-box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
-    -moz-box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
-    box-shadow: 0px 0px 27px 16px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 10px 10px 27px 16px rgba(0,0,0,0.22);
+    -moz-box-shadow: 10px 10px 27px 16px rgba(0,0,0,0.22);
+    box-shadow: 10px 10px 27px 16px rgba(0,0,0,0.22);
     border-radius: 60px 60px 80px 120px;
-    border: 1px solid black;
+    border: 2px solid black;
+    text-shadow: rgb(147, 147, 147) 1px 0 1px;
+    
 }
 
 .score_container-title {
@@ -26,7 +28,7 @@
 
     font-size: 1.5rem;
 
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     text-decoration: underline;
 }
 

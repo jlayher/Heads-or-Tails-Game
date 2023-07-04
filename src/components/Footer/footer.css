@@ -1,14 +1,30 @@
 .footer_container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    background-color: rgb(114, 117, 116);
     background-image: url('../../../public/black-paper.png');
     margin-top: auto;
 
-    min-height: 5.5vh;
-    border: 1px solid black;
+
+    min-height: 5vh;
+    border: 2px solid black;
     border-radius: 90px 10px 0px 0px;
     background-color: #55605e;
+    background-image: url('../../../public/wood3.jpg');
 
+
+
+}
+
+.footer_container-text {
+    padding-right:  10px;
+    margin-right: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: bold;
+    text-shadow: 4px 4px 5px rgb(70, 66, 66);
+    text-shadow: 2px 2px 2px rgb(114, 110, 110);
+    text-shadow: 2px 2px 2px rgb(90, 87, 87);
+    color: #050607;
+    
 }

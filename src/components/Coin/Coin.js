@@ -19,6 +19,7 @@ const Coin = ({
 
   return (
     <div className="coin_container">
+      
       <div className="coin_container-current">
         <div className="coin_container-current_player">
           <div>Current Player: {currentPlayer}</div>
@@ -31,10 +32,11 @@ const Coin = ({
       </div>
 
       <div className="coin">
-        <img  src="/heads-pic.png" />
-        <img className="coin_img" src="/tails-pic.png" />
+        <img className="coin_img" src="/heads-pic.png" />
+        {/* <img className="coin_img" src="/tails-pic.png" /> */}
       </div>
 
+    
       <div className="coin_container-main">
         <div className="coin_container-main_bet">
           <div className="coin_container_main_bet_title">Place Your Bet!</div>
@@ -61,9 +63,11 @@ const Coin = ({
         </div>
 
         <div className="coin_container-main_guess">
+          
           <div className="coin_container_main_guess_title">
             Select Your Guess, {currentPlayer}
           </div>
+
           <div className="coin_container_main_guess_form">
             <form
               onSubmit={(e) => {
@@ -72,6 +76,7 @@ const Coin = ({
                 handleGuess(guess);
               }}>
               <div className="coin_container_main_guess_form_radio">
+                
                 <div className="coin_container_main_guess_form_radio_btn">
                   <label for="heads">Heads </label>
                   <input
@@ -99,6 +104,7 @@ const Coin = ({
                       setChecked();
                     }}></input>
                 </div>
+
                 <div className="coin_container-main_guess-submit">
                   <button type="submit" name="submit guess" >
                     Submit Your Guess!
@@ -113,10 +119,11 @@ const Coin = ({
           <div className="coin_container-main_flip">
             <button type="submit" onClick={coinFlip}>Flip!</button>
           </div>
-          
         </div>
-        
+
       </div>
+
+
     </div>
   );
 };
