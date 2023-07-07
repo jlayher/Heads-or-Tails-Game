@@ -38,10 +38,12 @@ const Coin = ({
 
     
       <div className="coin_container-main">
+      <div className="coin_container_main_bet_title">Place Your Bet!</div>
         <div className="coin_container-main_bet">
-          <div className="coin_container_main_bet_title">Place Your Bet!</div>
+
           <div className="coin_container_main_bet_form">
             <form
+              className="coin_container_main_bet_form"
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit(bet);
