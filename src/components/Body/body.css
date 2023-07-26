@@ -1,5 +1,6 @@
 .body_container {
     display: flex;
+    /* flex-wrap: wrap; */
     height: 80vh;
     margin-top: 25px;;
     background-color: #c1b9bc;
@@ -10,4 +11,16 @@
 
 .body_outcome_container {
     /* display: none; */
+}
+
+@media (max-width: 2550px) {
+    .body_container {
+        display: flex;
+        height: 80vh;
+        margin-top: 25px;;
+        background-color: #c1b9bc;
+        background-color: #8d888a;
+        background-color: #898285;
+        background-image: url('../../../public/cardboard-flat.png');
+    }
 }

@@ -32,8 +32,10 @@ const Coin = ({
       </div>
 
       <div className="coin">
-        <img className="coin_img" src="/heads-pic.png" />
-        {/* <img className="coin_img" src="/tails-pic.png" /> */}
+        {flipValue === "Tails"
+        ? <img className="coin_img" src="/tails-pic.png" />
+        : <img className="coin_img" src="/heads-pic.png" />
+        }
       </div>
 
     

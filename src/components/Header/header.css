@@ -36,11 +36,12 @@
     font-family: 'Ysabeau SC', sans-serif;
     font-family: 'Abril Fatface', cursive;
     padding-bottom: 2px;
-    text-shadow: 4px 4px 5px rgb(129, 126, 126);
-    text-shadow: rgb(137, 135, 135) 1px 1px 2px;
-    background-color: rgba(209, 191, 169, 0.008);
+
+    text-shadow: 0px 0px 6px rgb(193, 188, 188);
+
+    /* background-color: rgba(209, 191, 169, 0.008); */
     background-image: url('../../../public/black-paper.png');
     border-radius: 16px;
-    color: #010102;
+    /* color: #010102; */
 }
 
